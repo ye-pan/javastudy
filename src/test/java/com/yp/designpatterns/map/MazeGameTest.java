@@ -1,8 +1,10 @@
 package com.yp.designpatterns.map;
 
 import com.yp.designpatterns.bombMap.BombedMazeFactory;
+import com.yp.designpatterns.bombMap.BombedMazeGame;
 import com.yp.designpatterns.bombMap.RoomWithABomb;
 import com.yp.designpatterns.enchantedMap.EnchantedMazeFactory;
+import com.yp.designpatterns.enchantedMap.EnchantedMazeGame;
 import com.yp.designpatterns.enchantedMap.EnchantedRoom;
 import org.junit.Test;
 
@@ -52,4 +54,21 @@ public class MazeGameTest {
         assertTrue(countingMazeBuilder.getDoors() == 1);
     }
 
+    @Test
+    public void testFactoryMethod() {
+        MazeGame game = new MazeGame();
+        Maze maze = game.createMaze();
+        assertTrue(maze.getRoom(1) instanceof Room);
+        assertTrue(maze.getRoom(2) instanceof Room);
+
+        game = new BombedMazeGame();
+        maze = game.createMaze();
+        assertTrue(maze.getRoom(1) instanceof RoomWithABomb);
+        assertTrue(maze.getRoom(2) instanceof RoomWithABomb);
+
+        game = new EnchantedMazeGame();
+        maze = game.createMaze();
+        assertTrue(maze.getRoom(1) instanceof EnchantedRoom);
+        assertTrue(maze.getRoom(2) instanceof EnchantedRoom);
+    }
 }

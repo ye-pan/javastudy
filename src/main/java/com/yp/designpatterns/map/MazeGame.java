@@ -3,14 +3,14 @@ package com.yp.designpatterns.map;
 public class MazeGame {
 
     /**
-     * 硬编码组装迷宫基本对象
+     * 工厂方法组装迷宫基本对象
      * @return
      */
     public Maze createMaze() {
-        Maze maze = new Maze();
-        Room room1 = new Room(1);
-        Room room2 = new Room(2);
-        Door theDoor = new Door(room1, room2);
+        Maze maze = makeMaze();
+        Room room1 = makeRoom(1);
+        Room room2 = makeRoom(2);
+        Door theDoor = makeDoor(room1, room2);
 
         maze.addRoom(room1);
         maze.addRoom(room2);
@@ -28,6 +28,22 @@ public class MazeGame {
         return maze;
     }
 
+
+    public Maze makeMaze() {
+        return new Maze();
+    }
+
+    public Room makeRoom(int roomNo) {
+        return new Room(roomNo);
+    }
+
+    public Wall makeWall() {
+        return new Wall();
+    }
+
+    public Door makeDoor(Room room1, Room room2) {
+        return new Door(room1, room2);
+    }
     /**
      * 抽象工厂组装迷宫基本对象
      * @param factory 抽象工厂类
