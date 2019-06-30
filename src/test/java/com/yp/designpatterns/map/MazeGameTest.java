@@ -37,4 +37,19 @@ public class MazeGameTest {
         assertTrue(maze.getRoom(2) instanceof RoomWithABomb);
     }
 
+
+    @Test
+    public void testBuilder() {
+        MazeBuilder builder = new StandardMazeBuilder();
+        MazeGame game = new MazeGame();
+        Maze maze = game.createMaze(builder);
+        assertNotNull(maze.getRoom(1));
+        assertNotNull(maze.getRoom(2));
+
+        CountingMazeBuilder countingMazeBuilder = new CountingMazeBuilder();
+        game.createMaze(countingMazeBuilder);
+        assertTrue(countingMazeBuilder.getRooms() == 2);
+        assertTrue(countingMazeBuilder.getDoors() == 1);
+    }
+
 }

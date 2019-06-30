@@ -17,4 +17,8 @@ public class Maze {
     Room getRoom(int roomNo) {
         return roomMap.get(roomNo);
     }
+
+    boolean containsRoom(int roomNo) {
+        return roomMap.containsKey(roomNo);
+    }
 }

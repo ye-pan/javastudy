@@ -54,4 +54,17 @@ public class MazeGame {
 
         return maze;
     }
+
+    /**
+     * 生成器组装迷宫基本对象
+     * @param builder
+     * @return
+     */
+    Maze createMaze(MazeBuilder builder) {
+        return builder.buildMaze()
+                .buildRoom(1)
+                .buildRoom(2)
+                .buildDoor(1, 2)
+                .getMaze();
+    }
 }
