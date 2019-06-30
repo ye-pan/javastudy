@@ -1,8 +1,6 @@
 package com.yp.algorithm;
 
-import org.bouncycastle.util.Strings;
 import org.junit.Test;
-import org.springframework.util.StopWatch;
 
 import java.util.concurrent.CountDownLatch;
 
@@ -71,8 +69,6 @@ public class IPWhiteListTest {
     @Test
     public void testWholeAddIpAddress() {
         IPWhiteList ipWhiteList = new IPWhiteList();
-        StopWatch time = new StopWatch();
-        time.start("整个IP段");
         for(int ip2 = 0; ip2 <= 255; ip2++) {
             for(int ip3 = 0; ip3 <= 255; ip3++) {
                 for(int ip4 = 0; ip4 <= 255; ip4++) {
@@ -80,9 +76,6 @@ public class IPWhiteListTest {
                 }
             }
         }
-        time.stop();
-        System.out.println(time.prettyPrint());
-
         assertEquals(256 * 256 * 256, ipWhiteList.size());
     }
 }
