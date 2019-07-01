@@ -1,11 +1,11 @@
-package com.yp.designpatterns.map;
+package com.yp.designpatterns.maze;
 
-import com.yp.designpatterns.bombMap.BombedMazeFactory;
-import com.yp.designpatterns.bombMap.BombedMazeGame;
-import com.yp.designpatterns.bombMap.RoomWithABomb;
-import com.yp.designpatterns.enchantedMap.EnchantedMazeFactory;
-import com.yp.designpatterns.enchantedMap.EnchantedMazeGame;
-import com.yp.designpatterns.enchantedMap.EnchantedRoom;
+import com.yp.designpatterns.maze.bomb.BombedMazeFactory;
+import com.yp.designpatterns.maze.bomb.BombedMazeGame;
+import com.yp.designpatterns.maze.bomb.RoomWithABomb;
+import com.yp.designpatterns.maze.enchanted.EnchantedMazeFactory;
+import com.yp.designpatterns.maze.enchanted.EnchantedMazeGame;
+import com.yp.designpatterns.maze.enchanted.EnchantedRoom;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

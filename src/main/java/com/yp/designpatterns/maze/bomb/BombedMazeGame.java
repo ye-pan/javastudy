@@ -1,8 +1,8 @@
-package com.yp.designpatterns.bombMap;
+package com.yp.designpatterns.maze.bomb;
 
-import com.yp.designpatterns.map.MazeGame;
-import com.yp.designpatterns.map.Room;
-import com.yp.designpatterns.map.Wall;
+import com.yp.designpatterns.maze.MazeGame;
+import com.yp.designpatterns.maze.Room;
+import com.yp.designpatterns.maze.Wall;
 
 public class BombedMazeGame extends MazeGame {
     @Override

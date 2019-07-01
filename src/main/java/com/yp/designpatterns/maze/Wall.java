@@ -1,4 +1,4 @@
-package com.yp.designpatterns.map;
+package com.yp.designpatterns.maze;
 
 public class Wall implements MapSite {
     @Override

@@ -1,8 +1,8 @@
-package com.yp.designpatterns.enchantedMap;
+package com.yp.designpatterns.maze.enchanted;
 
-import com.yp.designpatterns.map.Door;
-import com.yp.designpatterns.map.MazeFactory;
-import com.yp.designpatterns.map.Room;
+import com.yp.designpatterns.maze.Door;
+import com.yp.designpatterns.maze.MazeFactory;
+import com.yp.designpatterns.maze.Room;
 
 /**
  * 该类和{@link MazeFactory}一起展示了Abstract Factory抽象了对象创建部分，体现Abstract Factory是如何应对创建对象变化的情况。

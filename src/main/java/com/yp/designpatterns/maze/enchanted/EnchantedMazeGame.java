@@ -1,8 +1,8 @@
-package com.yp.designpatterns.enchantedMap;
+package com.yp.designpatterns.maze.enchanted;
 
-import com.yp.designpatterns.map.Door;
-import com.yp.designpatterns.map.MazeGame;
-import com.yp.designpatterns.map.Room;
+import com.yp.designpatterns.maze.Door;
+import com.yp.designpatterns.maze.MazeGame;
+import com.yp.designpatterns.maze.Room;
 
 public class EnchantedMazeGame extends MazeGame {
     @Override

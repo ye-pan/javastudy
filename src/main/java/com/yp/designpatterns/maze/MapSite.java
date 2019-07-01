@@ -1,4 +1,4 @@
-package com.yp.designpatterns.map;
+package com.yp.designpatterns.maze;
 
 public interface MapSite {
     void enter();

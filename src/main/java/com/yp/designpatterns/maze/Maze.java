@@ -1,4 +1,4 @@
-package com.yp.designpatterns.map;
+package com.yp.designpatterns.maze;
 
 import java.util.HashMap;
 import java.util.Map;

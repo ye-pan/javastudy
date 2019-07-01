@@ -1,6 +1,6 @@
-package com.yp.designpatterns.enchantedMap;
+package com.yp.designpatterns.maze.enchanted;
 
-import com.yp.designpatterns.map.Room;
+import com.yp.designpatterns.maze.Room;
 
 public class EnchantedRoom extends Room {
     private Spell spell;
