@@ -2,6 +2,7 @@ package com.yp.designpatterns.maze;
 
 import com.yp.designpatterns.maze.bomb.BombedMazeFactory;
 import com.yp.designpatterns.maze.bomb.BombedMazeGame;
+import com.yp.designpatterns.maze.bomb.BombedWall;
 import com.yp.designpatterns.maze.bomb.RoomWithABomb;
 import com.yp.designpatterns.maze.enchanted.EnchantedMazeFactory;
 import com.yp.designpatterns.maze.enchanted.EnchantedMazeGame;
@@ -70,5 +71,18 @@ public class MazeGameTest {
         maze = game.createMaze();
         assertTrue(maze.getRoom(1) instanceof EnchantedRoom);
         assertTrue(maze.getRoom(2) instanceof EnchantedRoom);
+    }
+
+
+    @Test
+    public void testPrototypeFactory() {
+        MazeGame game = new MazeGame();
+        MazePrototypeFactory factory = new MazePrototypeFactory(Maze.class, Room.class, Wall.class, Door.class);
+        Maze maze = game.createMaze(factory);
+        assertNotNull(maze);
+
+        factory = new MazePrototypeFactory(Maze.class, RoomWithABomb.class, BombedWall.class, Door.class);
+        maze = game.createMaze(factory);
+        assertNotNull(maze);
     }
 }
