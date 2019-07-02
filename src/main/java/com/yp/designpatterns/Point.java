@@ -1,4 +1,4 @@
-package com.yp.designpatterns.shape;
+package com.yp.designpatterns;
 
 public class Point {
     private double x;
@@ -14,5 +14,10 @@ public class Point {
 
     public double y() {
         return y;
+    }
+
+    public void setCoords(Coord x, Coord y) {
+        this.x = x.value();
+        this.y = y.value();
     }
 }

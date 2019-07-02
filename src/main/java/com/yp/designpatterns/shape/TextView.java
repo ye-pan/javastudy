@@ -1,5 +1,7 @@
 package com.yp.designpatterns.shape;
 
+import com.yp.designpatterns.Coord;
+
 public class TextView {
     public void getOrigin(Coord x, Coord y) {
 

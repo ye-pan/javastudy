@@ -1,5 +1,8 @@
 package com.yp.designpatterns.shape;
 
+import com.yp.designpatterns.Coord;
+import com.yp.designpatterns.Point;
+
 /**
  * 通过多继承实现adapter，Java中没有多继承只有继承adaptee，并实现target来实现。不推荐。
  */

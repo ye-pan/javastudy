@@ -1,5 +1,8 @@
 package com.yp.designpatterns.shape;
 
+import com.yp.designpatterns.Coord;
+import com.yp.designpatterns.Point;
+
 /**
  * 通过复用adaptee来实现adapter，只实现了target接口。推荐。
  */
