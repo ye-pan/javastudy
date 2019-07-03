@@ -6,6 +6,11 @@ import static org.junit.Assert.*;
 
 public class EquipmentTest {
 
+    /**
+     * 通过Composite模式实现了部分-整体这种组合对象结构。
+     * 最终展现出来就是，使用组合对象和使用普通对象没有区别。
+     * 但同时实现了组合对象的复杂功能。
+     */
     @Test
     public void testCompositeEquipment() {
         Cabinet cabinet = new Cabinet("PC Cabinet");
