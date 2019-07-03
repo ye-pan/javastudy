@@ -1,4 +1,4 @@
-package com.yp.designpatterns.maze;
+package com.yp.designpatterns.shape;
 
 import com.yp.designpatterns.shape.Shape;
 import com.yp.designpatterns.shape.TextShape;
