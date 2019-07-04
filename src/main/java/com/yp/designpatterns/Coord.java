@@ -11,6 +11,10 @@ public class Coord {
         this.value = val;
     }
 
+    public static Coord zero() {
+        return new Coord(0);
+    }
+
     public Coord add(Coord coord) {
         return new Coord(value + coord.value);
     }
