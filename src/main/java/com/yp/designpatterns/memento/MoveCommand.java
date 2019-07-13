@@ -1,4 +1,4 @@
-package com.yp.memento;
+package com.yp.designpatterns.memento;
 
 import com.yp.designpatterns.Point;
 

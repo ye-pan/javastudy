@@ -1,4 +1,4 @@
-package com.yp.memento;
+package com.yp.designpatterns.memento;
 
 public class ConstraintSolver {
     public void solve() {
