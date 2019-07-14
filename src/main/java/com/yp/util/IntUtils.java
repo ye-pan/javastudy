@@ -27,4 +27,14 @@ public class IntUtils {
         }
         return ranges;
     }
+
+    public static Integer[] randomeWrapper(int len) {
+        Preconditions.checkArgument(len > 0, "array length must gt 0");
+        Integer[] ints = new Integer[len];
+        Random randome = new Random();
+        for (int i = 0; i < len; i++) {
+            ints[i] = randome.nextInt(99999999);
+        }
+        return ints;
+    }
 }
