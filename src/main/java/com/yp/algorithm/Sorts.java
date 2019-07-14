@@ -3,26 +3,9 @@ package com.yp.algorithm;
 import com.google.common.base.Preconditions;
 
 public class Sorts {
-
-    /**
-     * 插入排序<br/>
-     *
-     *
-     * @param arr
-     */
-    public static void insertSort(int[] arr) {
-        for(int j  = 1; j < arr.length; j++) {
-            int n = arr[j];
-            int i = j - 1;
-            while(i > 0 && arr[i] > n) {
-                arr[i+1] = arr[i];
-                i = i - 1;
-            }
-            arr[i + 1] = n;
-        }
-    }
-
-
+    private static final StdDraw DRAW = new StdDraw();
+    private static boolean IS_DRAW = true;
+    private static final int SLEEP = 2000;
 
     private static <T extends Comparable<T>> boolean less(T a, T b) {
         return a.compareTo(b) < 0;
@@ -55,6 +38,47 @@ public class Sorts {
             if(min != i) {
                 swap(arr, i, min);
             }
+            draw(arr);
         }
+    }
+
+    /**
+     * 插入排序
+     *
+     * @param arr
+     * @param <T>
+     */
+    public static <T extends Comparable<T>> void insertion(T[] arr) {
+        Preconditions.checkNotNull(arr);
+        Preconditions.checkArgument(arr.length > 0);
+        for(int i = 1; i < arr.length; i++) {
+            /*T v = arr[i];
+            int j;
+            for(j = i - 1; j >= 0 && less(v, arr[j]); j--) {
+                swap(arr, j, j + 1);
+            }
+            arr[j + 1] = v;*/
+            for(int j = i; j > 0 && less(arr[j], arr[j - 1]); j--) {
+                swap(arr, j, j-1);
+            }
+            draw(arr);
+        }
+    }
+
+    public static <T> void draw(T[] arr) {
+        if(!IS_DRAW || !(arr instanceof  Number[])) {
+            return;
+        }
+        DRAW.clear();
+        for(int i = 0; i < arr.length; i++) {
+            T v = arr[i];
+            Number n = (Number)v;
+            double x = 1.0 * i / arr.length;
+            double y = n.doubleValue() / 2;
+            double rw = 0.5 / arr.length;
+            double rh = n.doubleValue() / 2;
+            DRAW.filledRectangle(x, y, rw, rh);
+        }
+        DRAW.pause(SLEEP);
     }
 }

@@ -1,6 +1,6 @@
 package com.yp.algorithm;
 
-import com.yp.util.IntUtils;
+import com.yp.util.NumberUtils;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -13,7 +13,7 @@ public class RangesTest {
     @Before
     public void init() {
         int begin = 1, end = 1001;
-        range = IntUtils.range(begin, end);
+        range = NumberUtils.range(begin, end);
         expected = (long)(begin + end) * (end - begin + 1) / 2;
     }
     @Test
