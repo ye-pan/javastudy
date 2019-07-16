@@ -51,6 +51,7 @@ public class Sorts {
     public static <T extends Comparable<T>> void insertion(T[] arr) {
         Preconditions.checkNotNull(arr);
         Preconditions.checkArgument(arr.length > 0);
+        //TODO-yepan 还可以优化提高速度，需要在内循环中将较大的元素都向右移动而不总是交换两个元素
         for(int i = 1; i < arr.length; i++) {
             /*T v = arr[i];
             int j;
