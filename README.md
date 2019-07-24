@@ -6,3 +6,4 @@ Java学习过程的代码痕迹
 * netty：netty框架学习的一些代码
 * tdd：《测试驱动开发》学习的示例代码
 * implementationpatterns：《实现模式》
+* refactor：《重构》
