@@ -1,5 +1,7 @@
-#JavaStudy
+# JavaStudy
+
 Java学习过程的代码痕迹
+
 ## futrue
 * algorith：算法与数据结构，《算法》
 * designpatterns：《设计模式》的示例代码
