@@ -1,4 +1,4 @@
-package com.yp.refactor.before;
+package com.yp.refactor.after;
 
 import java.util.Collection;
 
@@ -6,10 +6,10 @@ public class Order {
 
     private double amount;
 
-    private String customer;
+    private CustomerObject customer;
 
     public Order(String customer) {
-        this.customer = customer;
+        this.customer = CustomerObject.newInstance(customer);
     }
 
     public double getAmount() {
@@ -21,11 +21,11 @@ public class Order {
     }
 
     public String getCustomer() {
-        return customer;
+        return customer.getName();
     }
 
     public void setCustomer(String customer) {
-        this.customer = customer;
+        this.customer = CustomerObject.newInstance(customer);
     }
 
     private static int numberOfOrderFor(Collection<Order> orders, final String customer) {

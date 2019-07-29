@@ -8,6 +8,12 @@ public class Person {
 
     private Department department;
 
+    private BooldGroup booldGroup;
+
+    public Person(int booldGroup) {
+        this.booldGroup = BooldGroup.code(booldGroup);
+    }
+
     public String getName() {
         return name;
     }
@@ -38,5 +44,17 @@ public class Person {
 
     public Person getManager() {
         return department.getManager();
+    }
+
+    public int getBooldGroupCode() {
+        return booldGroup.getCode();
+    }
+
+    public BooldGroup getBooldGroup() {
+        return booldGroup;
+    }
+
+    public void setBooldGroup(int booldGroup) {
+        this.booldGroup = BooldGroup.code(booldGroup);
     }
 }

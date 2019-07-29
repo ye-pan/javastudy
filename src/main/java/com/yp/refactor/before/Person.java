@@ -2,6 +2,11 @@ package com.yp.refactor.before;
 
 public class Person {
 
+    public static final int O = 0;
+    public static final int A = 1;
+    public static final int B = 2;
+    public static final int AB = 3;
+
     private String name;
 
     private String officeAreaCode;
@@ -9,6 +14,12 @@ public class Person {
     private String officeNumber;
 
     private Department department;
+
+    private int booldGroup;
+
+    public Person(int booldGroup) {
+        this.booldGroup = booldGroup;
+    }
 
     public String getName() {
         return name;
@@ -44,5 +55,13 @@ public class Person {
 
     public void setDepartment(Department department) {
         this.department = department;
+    }
+
+    public int getBooldGroup() {
+        return booldGroup;
+    }
+
+    public void setBooldGroup(int booldGroup) {
+        this.booldGroup = booldGroup;
     }
 }
