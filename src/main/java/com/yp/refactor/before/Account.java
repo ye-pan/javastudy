@@ -1,5 +1,8 @@
 package com.yp.refactor.before;
 
+import java.util.Date;
+import java.util.List;
+
 public class Account {
 
     private AccountType type;
@@ -7,6 +10,8 @@ public class Account {
     private int daysOverdrawn;
 
     private double interestRate;
+
+    private List<Entry> entries;
 
     public double overdraftCharge() {
         if(type.isPremium()) {
@@ -30,5 +35,17 @@ public class Account {
 
     public double interestForAccountDays(double amount, int days) {
         return interestRate * amount * days / 365;
+    }
+
+    public double getFlowBetween(Date start, Date end) {
+        double result = 0;
+        for (Entry entry : entries) {
+            if(entry.getDate().equals(start) ||
+                    entry.getDate().equals(end) ||
+                    (entry.getDate().after(start) && entry.getDate().before(end))) {
+                result += entry.getValue();
+            }
+        }
+        return result;
     }
 }
