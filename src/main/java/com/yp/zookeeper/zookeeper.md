@@ -52,3 +52,9 @@ follower和observer只提供读服务，observer不参与leader选举过程，�
 * PERSISTENT_SEQUENTIAL，持久顺序
 * EPHEMERAL，临时
 * EPHEMERAL_SEQUENTIAL，临时顺序
+
+
+## curator
+
+基于curator-framework的recipes的源代码构建一些基于zookeeper的demo，主要用于zookeeper应用及curator客户端
+API学习。
