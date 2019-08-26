@@ -5,10 +5,8 @@ import org.apache.curator.framework.CuratorFrameworkFactory;
 import org.apache.curator.retry.ExponentialBackoffRetry;
 import org.apache.zookeeper.CreateMode;
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
 import java.util.concurrent.CyclicBarrier;
 
 import static org.junit.Assert.*;
@@ -49,16 +47,18 @@ public class NodeCacheTest {
         NodeCache nodeCache = new NodeCache(client, path);
         try {
             CyclicBarrier barrier = new CyclicBarrier(2);
-            nodeCache.start();
+            nodeCache.start(true);
             nodeCache.getListenable().addListener(() -> {
                 System.out.println("Node data changed, new data: " + new String(nodeCache.getCurrentData().getData()));
                 barrier.await();
             });
+            String cacheValue = new String(nodeCache.getCurrentData().getData());
+            assertEquals(init, cacheValue);
 
             String newVal = "update";
             client.setData().forPath(path, newVal.getBytes());
             barrier.await();
-            String cacheValue = new String(nodeCache.getCurrentData().getData());
+            cacheValue = new String(nodeCache.getCurrentData().getData());
             assertEquals(newVal, cacheValue);
         } finally {
             nodeCache.close();
