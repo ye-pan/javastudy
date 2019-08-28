@@ -11,9 +11,10 @@ import java.util.concurrent.TimeUnit;
 public class InterProcessMutexTest extends ZKSimpleTest {
 
     @Test
-    public void test() throws InterruptedException {
-        //TODO-yepan 测试出来有问题，需要排查代码
-        InterProcessMutex mutex = new InterProcessMutex(client, path);
+    public void test() throws Exception {
+        String basePath = "/zkbook/interprocessmutex";
+        client.create().creatingParentsIfNeeded().forPath(basePath);
+        InterProcessMutex mutex = new InterProcessMutex(client, basePath);
         int threads = 30;
         CountDownLatch latch = new CountDownLatch(30);
         CountDownLatch await = new CountDownLatch(1);

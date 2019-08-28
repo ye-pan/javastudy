@@ -1,7 +1,9 @@
 package com.yp.zookeeper.curator.cache;
 
 import com.yp.zookeeper.curator.ZKSimpleTest;
+import org.apache.zookeeper.CreateMode;
 import org.junit.Test;
+
 import java.util.concurrent.CyclicBarrier;
 
 import static org.junit.Assert.*;
@@ -10,6 +12,12 @@ public class NodeCacheTest extends ZKSimpleTest {
 
     @Test
     public void testNodeCache() throws Exception {
+        String path = "/zk-book/nodeCache";
+
+        client.create()
+                .creatingParentsIfNeeded()
+                .withMode(CreateMode.EPHEMERAL)
+                .forPath(path);
         NodeCache nodeCache = new NodeCache(client, path);
         try {
             CyclicBarrier barrier = new CyclicBarrier(2);

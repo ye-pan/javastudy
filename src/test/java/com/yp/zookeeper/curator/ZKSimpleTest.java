@@ -10,7 +10,6 @@ import org.junit.Before;
 public class ZKSimpleTest {
     protected CuratorFramework client;
     protected String namespace = "zk-test";
-    protected String path;
     protected String init = "init";
 
     @Before
@@ -22,15 +21,6 @@ public class ZKSimpleTest {
                 .namespace(namespace)
                 .build();
         client.start();
-        path = "/zk-book/interprocessmutex";
-        try {
-            client.create()
-                    .creatingParentsIfNeeded()
-                    .withMode(CreateMode.EPHEMERAL)
-                    .forPath(path);
-        } catch(Exception e) {
-            throw new RuntimeException("测试用例初始化失败", e);
-        }
     }
 
     @After

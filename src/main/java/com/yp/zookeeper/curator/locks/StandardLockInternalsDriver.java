@@ -10,40 +10,30 @@ public class StandardLockInternalsDriver implements LockInternalsDriver {
     @Override
     public PredicateResults getsTheLock(CuratorFramework client, List<String> children, String sequenceNodeName, int maxLeases) throws Exception {
         int ourIndex = children.indexOf(sequenceNodeName);
-        validateOurIndex(sequenceNodeName, ourIndex);
+        if(ourIndex < 0) {
+            throw new KeeperException.NoNodeException("Sequential path not found: " + sequenceNodeName);
+        }
         boolean getsTheLock = ourIndex < maxLeases;
         String pathToWatch = getsTheLock ? null : children.get(ourIndex - maxLeases);
         return new PredicateResults(pathToWatch, getsTheLock);
     }
 
     @Override
-    public String createsTheLock(CuratorFramework client, String path, byte[] lockNodeBytes) throws Exception {
-        String ourPath;
+    public String createTheLock(CuratorFramework client, String path, byte[] lockNodeBytes) throws Exception {
         if(lockNodeBytes != null) {
-            ourPath = client.create().creatingParentContainersIfNeeded().withProtection().withMode(CreateMode.EPHEMERAL_SEQUENTIAL).forPath(path, lockNodeBytes);
+            return client.create().creatingParentContainersIfNeeded().withProtection().withMode(CreateMode.EPHEMERAL_SEQUENTIAL).forPath(path, lockNodeBytes);
         } else {
-            ourPath = client.create().creatingParentContainersIfNeeded().withProtection().withMode(CreateMode.EPHEMERAL_SEQUENTIAL).forPath(path);
+            return client.create().creatingParentContainersIfNeeded().withProtection().withMode(CreateMode.EPHEMERAL_SEQUENTIAL).forPath(path);
         }
-        return ourPath;
     }
 
     @Override
-    public String fixForSorting(String str, String lockName) {
-        return standardFixForSorting(str, lockName);
-    }
-
-    public static String standardFixForSorting(String str, String lockName) {
-        int index = str.lastIndexOf(lockName);
+    public String fixForSorting(String path, String lockName) {
+        int index = path.lastIndexOf(lockName);
         if(index >= 0) {
             index += lockName.length();
-            return index <= str.length() ? str.substring(index) : "";
+            return index <= path.length() ? path.substring(index) : "";
         }
-        return str;
-    }
-
-    static void validateOurIndex(String sequenceNodeName, int ourIndex) throws KeeperException.NoNodeException {
-        if(ourIndex < 0) {
-            throw new KeeperException.NoNodeException("Sequential path not found: " + sequenceNodeName);
-        }
+        return path;
     }
 }
