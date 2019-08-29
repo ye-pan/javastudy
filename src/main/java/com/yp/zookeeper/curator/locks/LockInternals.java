@@ -107,7 +107,6 @@ class LockInternals {
     }
 
     public String attempLock(long time, TimeUnit unit, byte[] lockNodeBytes) throws Exception {
-        Preconditions.checkArgument(time > 0);
         long startMillis = System.currentTimeMillis();
         long millisToWait = (unit != null) ? unit.toMillis(time) : WAIT_NO_TIME;
         byte[] localLockNodeBytes = revocable.get() != null ? new byte[0] : lockNodeBytes;
