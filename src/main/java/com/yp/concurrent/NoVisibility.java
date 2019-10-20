@@ -1,8 +1,8 @@
 package com.yp.concurrent;
 
 public class NoVisibility {
-    private static boolean ready;
-    private static int number;
+    private static boolean ready = true;
+    private static int number = 41;
     private static class ReaderThread extends Thread {
         @Override
         public void run() {
@@ -13,10 +13,12 @@ public class NoVisibility {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        Thread thread = new ReaderThread();
-        thread.start();
-        number = 42;
-        ready = true;
-        thread.join();
+        while(true) {
+            Thread thread = new ReaderThread();
+            thread.start();
+            number = 42;
+            ready = true;
+            thread.join();
+        }
     }
 }

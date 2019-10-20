@@ -18,7 +18,10 @@ public class ThreadAPITest {
                 Thread.sleep(5000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
-                //此处为什么为false，看下Thread.sleep方法的注释，InterruptedException有说明
+                //抛出InterruptedException后，线程中断状态会恢复，
+                // 所以有些代码在捕获了异常后又重新interrupt()恢复了中断状态
+                Thread.currentThread().interrupt();
+                //此处为什么为false?，看下Thread.sleep方法的注释，InterruptedException有说明
                 assertFalse(Thread.currentThread().isInterrupted());
             }
         });
