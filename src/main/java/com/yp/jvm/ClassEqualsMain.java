@@ -8,6 +8,7 @@ import java.io.InputStream;
  */
 public class ClassEqualsMain {
 
+    @SuppressWarnings("unchecked")
     public static void main(String[] args) throws Exception {
         ClassLoader myLoader = new ClassLoader() {
             @Override

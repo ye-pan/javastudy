@@ -6,6 +6,7 @@ package com.yp.jvm;
 public class FinalizeEscapeGC {
     public static FinalizeEscapeGC SAVE_HOOK;
 
+    @SuppressWarnings("deprecation")
     @Override
     protected void finalize() throws Throwable {
         super.finalize();
