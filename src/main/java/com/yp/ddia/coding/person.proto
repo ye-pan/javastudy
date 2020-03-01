@@ -1,0 +1,9 @@
+syntax = "proto2";
+ 
+package com.yp.ddia.coding;
+
+message Person {
+	required string user_name = 1;
+	optional int64 favorite_number = 2;
+	repeated string interests = 3;
+}
