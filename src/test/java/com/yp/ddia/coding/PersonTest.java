@@ -8,7 +8,7 @@ import java.io.IOException;
 import org.junit.Test;
 
 import com.yp.ddia.coding.PersonOuterClass.Person;
-import com.yp.util.ByteReader;
+import com.yp.util.BytePrint;
 
 public class PersonTest {
 
@@ -23,7 +23,7 @@ public class PersonTest {
 		byte[] data = person.toByteArray();
 		
 		ByteArrayOutputStream out = new ByteArrayOutputStream(data.length * 2);
-		ByteReader.byteToHex(data, data.length, out);
+		BytePrint.byteToHex(data, data.length, out);
 		assertEquals(data.length * 2, out.size());
 		System.out.println(out);
 	}
